@@ -17,6 +17,10 @@ function App() {
     inputRef.current.focus();
   };
 
+  const handleColor = () => {
+    inputRef.current.style.color = "red";
+  };
+
   const startTimer = () => {
     timerId.current = setInterval(() => {
       renders.current++;
@@ -45,16 +49,20 @@ function App() {
       <input
         ref={inputRef}
         type="text"
-        value={randomInput}
         data-cy="input"
+        value={randomInput}
         placeholder="Random Input"
         onChange={handleChange}
       />
       <p data-cy="render">Renders: {renders.current}</p>
       <br />
-      <br />
-      <button onClick={focusOnInput}>Focus</button>
-      <br />
+      <section>
+        <button data-cy="focusButton" onClick={focusOnInput}>
+          Focus
+        </button>
+        <button data-cy="colorButton" onClick={handleColor}>Change Color</button>
+      </section>
+
       <br />
       <section>
         <button onClick={startTimer}>Start</button>
@@ -68,7 +76,6 @@ function App() {
       <p data-cy="timer">Seconds: {seconds}</p>
       <br />
       <br />
-      <p>{randomInput}</p>
     </main>
   );
 }

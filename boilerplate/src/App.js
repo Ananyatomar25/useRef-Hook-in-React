@@ -17,7 +17,11 @@ function App() {
   };
 
   const focusOnInput = () => {
-    inputRef.current.focus();
+    //TODO: get hold of the input text box using useRef hook to focus on it when focus button is clicked
+  };
+
+  const handleColor = () => {
+    //TODO: get hold of the input text box using useRef hook to change color of input text to "RED" when Change Color button is clicked
   };
 
   const startTimer = () => {
@@ -48,16 +52,22 @@ function App() {
       <input
         ref={inputRef}
         type="text"
-        value={randomInput}
         data-cy="input"
+        value={randomInput}
         placeholder="Random Input"
         onChange={handleChange}
       />
       <p data-cy="render">Renders: {renders.current}</p>
       <br />
-      <br />
-      <button onClick={focusOnInput}>Focus</button>
-      <br />
+      <section>
+        <button data-cy="focusButton" onClick={focusOnInput}>
+          Focus
+        </button>
+        <button data-cy="colorButton" onClick={handleColor}>
+          Change Color
+        </button>
+      </section>
+
       <br />
       <section>
         <button onClick={startTimer}>Start</button>
@@ -71,7 +81,6 @@ function App() {
       <p data-cy="timer">Seconds: {seconds}</p>
       <br />
       <br />
-      <p>{randomInput}</p>
     </main>
   );
 }
