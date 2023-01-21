@@ -2,9 +2,12 @@ import { useState, useRef } from "react";
 
 function App() {
   const [randomInput, setRandomInput] = useState("");
-  const [seconds, setSeconds] = useState(0);
 
-  const renders = useRef(0);
+  //TODO: Set the default initial value of timer to '0'
+  const [seconds, setSeconds] = useState(null);
+
+  //TODO: Set the default initial value of render variable to '0'
+  const renders = useRef();
   const inputRef = useRef();
   const timerId = useRef();
 
